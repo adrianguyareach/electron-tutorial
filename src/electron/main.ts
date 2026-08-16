@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'path';
 import { pollResources } from './resourceManager';
-
+import { getPreloadPath } from './pathResolver';
 type test = string;
 
 app.whenReady().then(() => {
@@ -9,10 +9,9 @@ app.whenReady().then(() => {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      // preload:
+      preload: getPreloadPath(),
     },
   });
-
   const devServerUrl = process.env.VITE_DEV_SERVER_URL;
   if (devServerUrl) {
     mainWindow.loadURL(devServerUrl);
