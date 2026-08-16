@@ -1,0 +1,4 @@
+allowBuilds:
+  # electron-winstaller's install script selects the 7-Zip binary for the host
+  # architecture; required when building the Windows msi target.
+  electron-winstaller: true

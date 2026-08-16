@@ -1,0 +1,19 @@
+{
+    "appId": "com.junglegreen.app",
+    "productName": "Jungle Green",
+    "files": ["dist-electron", "dist-react"],
+    "mac": {
+        "icon": "build/icon.icns",
+        "target": ["dmg"]
+    },
+    "win": {
+        "icon": "build/icon.ico",
+        "target": ["portable", "msi"]
+    },
+    "linux": {
+        "icon": "build/icons",
+        "target": ["AppImage"],
+        "category": "Utility",
+        "syncDesktopName": true
+    }
+}
