@@ -1,6 +1,6 @@
 {
     "appId": "com.junglegreen.app",
-    "productName": "Jungle Green",
+    "productName": "JungleGreen",
     "files": ["dist-electron", "dist-react"],
     "mac": {
         "icon": "build/icon.icns",

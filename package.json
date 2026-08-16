@@ -14,19 +14,21 @@
     "build": "tsc -b && vite build && pnpm transpile:electron",
     "lint": "eslint .",
     "preview": "vite preview",
-    "transpile:electron": "tsc --project src/electron/tsconfig.json",
+    "transpile:electron": "tsc --project src/electron/tsconfig.json && node --input-type=module -e \"import { cpSync } from 'node:fs'; cpSync('src/electron/package.json', 'dist-electron/package.json');\"",
     "dist": "pnpm run build && electron-builder",
     "dist:win": "pnpm run build && electron-builder --win --x64",
     "dist:mac": "pnpm run build && electron-builder --mac --x64",
     "dist:linux": "pnpm run build && electron-builder --linux --x64"
   },
   "dependencies": {
+    "os-utils": "^0.0.14",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^24.13.3",
+    "@types/os-utils": "^0.0.4",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
