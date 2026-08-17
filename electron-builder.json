@@ -2,6 +2,9 @@
     "appId": "com.junglegreen.app",
     "productName": "JungleGreen",
     "files": ["dist-electron", "dist-react"],
+    "extraResources": [
+        "dist-electron/preload.cjs"
+    ],
     "mac": {
         "icon": "build/icon.icns",
         "target": ["dmg"]

@@ -1,0 +1,5 @@
+{
+  "watch": ["dist-electron"],
+  "ext": "js,cjs,json",
+  "exec": "electron --no-sandbox ."
+}
