@@ -1,7 +1,7 @@
 {
   "name": "electron-tutorial",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Jungle Green desktop app",
   "author": "Adrian Guya <adrian.guya@wezacare.org>",
   "type": "module",
