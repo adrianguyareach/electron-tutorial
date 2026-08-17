@@ -9,8 +9,8 @@ function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    window.electron.subscribeStatistics((statistics) => {
-      console.log(statistics);
+    window.electron.subscribeStatistics(() => {
+      // console.log(statistics);
     });
   }, []);
 
