@@ -1,12 +1,19 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, Tray } from 'electron';
 import path from 'path';
 import { pollResources, getStaticData } from './resourceManager';
-import { getPreloadPath } from './pathResolver';
+import { getAssetPath, getPreloadPath } from './pathResolver';
 
 type test = string;
 
+// Must be module scope: a Tray held only by a local is garbage collected and
+// the icon silently disappears from the system tray a while after startup.
+let tray: Tray;
+
 app.whenReady().then(() => {
   const mainWindow = new BrowserWindow({
+    // build/icon.* is only read by electron-builder when packaging, so without
+    // this the window/taskbar shows Electron's default icon in development.
+    icon: path.join(getAssetPath(), 'appIcon.png'),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -33,4 +40,7 @@ app.whenReady().then(() => {
   ipcMain.handle('getStaticData', () => {
     return getStaticData();
   });
+
+  tray = new Tray(path.join(getAssetPath(), 'trayIcon.png'));
+  tray.setToolTip('Electron app');
 });

@@ -3,7 +3,8 @@
     "productName": "JungleGreen",
     "files": ["dist-electron", "dist-react"],
     "extraResources": [
-        "dist-electron/preload.cjs"
+        "dist-electron/preload.cjs",
+        "assets/**/*.png"
     ],
     "mac": {
         "icon": "build/icon.icns",
